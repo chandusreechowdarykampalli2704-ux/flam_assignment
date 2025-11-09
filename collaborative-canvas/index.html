@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Collaborative Canvas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="toolbar">
+        <h1 class="toolbar-title">Collaborative Canvas</h1>
+
+        <div class="divider"></div>
+
+        <div class="tool-group">
+            <button class="tool-button active" data-tool="brush" data-tooltip="Brush">🖌️</button>
+            <button class="tool-button" data-tool="eraser" data-tooltip="Eraser">🧼</button>
+        </div>
+        
+        <div class="divider"></div>
+
+        <div class="tool-group">
+            <label for="colorPicker" class="tool-label">Color:</label>
+            <input type="color" id="colorPicker" value="#000000">
+        </div>
+
+        <div class="tool-group">
+            <label for="strokeWidth" class="tool-label">Width:</label>
+            <input type="range" id="strokeWidth" min="1" max="100" value="5">
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="tool-group">
+            <button class="tool-button" id="undoButton" data-tooltip="Undo">↩️</button>
+            <button class="tool-button" id="redoButton" data-tooltip="Redo">↪️</button>
+        </div>
+        
+        <div class="tool-group" style="margin-left: auto;">
+            <button class="tool-button danger" id="clearButton" data-tooltip="Clear All">❌</button>
+        </div>
+    </div>
+
+    <div id="canvasContainer">
+        <canvas id="drawingCanvas"></canvas>
+        <canvas id="cursorCanvas"></canvas>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="websocket.js"></script>
+    <script src="canvas.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
